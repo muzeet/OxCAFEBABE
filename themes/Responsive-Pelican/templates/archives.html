@@ -1,0 +1,44 @@
+{% extends "baseArticle.html" %}
+{% block content %}
+
+
+<div class="archive_list"><h1>文章列表</h1></div>
+
+
+<div id="blog-archives" class="category">
+{% for year, year_articles in articles|groupby('date.year')|sort(reverse=True) %}
+<div class="yearClass"><span>{{ year_articles[0].date.strftime('%Y')}}</span></div>
+{% for article in year_articles %}
+<article>
+    <div id="ev_article">
+	<dd>
+		<span class="archives_year archives_content">
+			<time datetime="{{ article.date.isoformat()}}" pubdate>
+				<span class='year'>{{ year }}</span>
+				<span class='month'>{{ article.date.strftime('%m') }}</span>
+				<span class='day'>{{ article.date.strftime('%d') }}</span>
+			</time>
+			<h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+		</span>
+	</dd>
+	<dd>
+		<footer class="post-meta archives_content" id="archive_footer">
+			<span class="meta-prep">分类:</span>
+			<abbr class="category">
+				<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+			</abbr>
+		</footer>
+	</dd>
+	</div>
+</article>
+{% endfor %}
+{% endfor %}
+
+</div>
+
+
+
+
+  
+{% endblock %}
+

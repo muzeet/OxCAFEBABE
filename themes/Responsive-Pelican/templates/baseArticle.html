@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ DEFAULT_LANG }}">
+
+<head>
+    {% block head %}
+    <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" id="responsive-style-css"  href="{{ SITE_URL }}/theme/css/tomorrow-night-bright.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="responsive-style-css"  href='{{ SITE_URL }}/theme/css/style.css' type="text/css" media="all" />
+	<!--<link rel="stylesheet" id="responsive-style-css"  href='{{ SITE_URL }}/theme/css/pygmentMy.css' type="text/css" media="all" />-->
+	<link rel="stylesheet" id="responsive-style-css"  href='{{ SITE_URL }}/theme/css/archive.css' type="text/css" media="all" />
+	
+	<script type="text/javascript" src="{{ SITE_URL }}/theme/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="{{ SITE_URL }}/theme/js/numberLines.js"></script>
+	<script type="text/javascript" src="{{ SITE_URL }}/theme/js/prettify.js"></script>
+	
+	{% if FEED_ALL_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+    {% endif %}
+    {% if FEED_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+    {% if FEED_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+    {% if CATEGORY_FEED_ATOM and category %}
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+    {% endif %}
+    {% if CATEGORY_FEED_RSS and category %}
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+    {% endif %}
+    {% if TAG_FEED_ATOM and tag %}
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+    {% endif %}
+    {% if TAG_FEED_RSS and tag %}
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+    {% endif %}
+    
+    {% endblock head %}
+</head>
+
+<body id="index" class="blog"  onload="$('pre').addClass('prettyprint');window.prettyPrint && prettyPrint();">
+<div id="container" class="hfeed">
+    <header id="header" >
+        <div id="logo">
+                <h1>{{ SITENAME }}</h1>
+        </div> <!-- /#logo-->
+        <nav id="menu" class="main-nav"><ul class="menu">
+        {% for title, link in MENUITEMS %}
+            <li {% if p == page %} class="active"{% endif %}><a href="{{ link }}">{{ title }}</a></li>
+        {% endfor %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+          {% for p in PAGES %}
+            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+          {% endfor %}
+        {% else %}
+          {% if DISPLAY_CATEGORIES_ON_MENU %}
+            {% for cat, null in categories %}
+              <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+
+        </ul></nav><!-- /#menu -->
+    </header>
+    <section id="wrapper" class="clearfix">
+        <section id="content" class="grid col-620" >
+            {% block content %}
+                {% block content_title %}
+                {% endblock %}
+                <section class="breadcrumb-list">
+				<!--
+                    {% block nav %}
+                    {% endblock %}
+					-->
+                </section>
+
+            {% endblock %}
+        </section><!-- #content -->
+        {% block widgets %}
+        <section id="widgets" class="grid col-300 fit" >
+            <!--
+            {% block searchform %}
+            <section id="widget-search" class="widget-wrapper widget_search">
+
+                <form id="searchform" action="http://www.google.com/search" method="get">
+                    <input id="q" class="field" type="text" placeholder="Search Blog" name="q" ></input>
+                    <input id="ie" name="ie" type="hidden" value="utf-8" ></input>
+                    <input id="oe" name="oe" type="hidden" value="utf-8" ></input>
+                    <input id="channel" name="channel" type="hidden" value="suggest" ></input>
+                    <input id="searchsubmit" class="submit" type="submit" value="">
+                </form>
+            </section>
+            {% endblock %}
+            -->
+			
+            {% block categories %}
+            <section id="widget-category" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    分类目录
+                </div>
+				<div class="tag_cloud">
+                    {% for category, article in categories|sort %}
+						<a href="{{ SITEURL }}/{{ category.url }}" style="font-size: {{ article|count|count_to_font_size }};">{{ category.name }}({{ article|count}})</a>
+                    {% endfor %}
+				</div>
+            </section>
+            {% endblock %}
+
+			{% block recentArticles %}
+            <section id="widget-category" class="widget-wrapper widget_recentArticle">
+                <div class="widget-title">
+                    最近文章
+                </div>
+				<div>
+                {% set recent = articles if not all_articles else all_articles %}
+				<ul id="recent-posts">
+				{% for a in recent %}
+				  {% if loop.index <= 6 %}
+					<li>
+					  <a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a>
+					</li>
+				  {% endif %}
+				{% endfor %}
+				</ul>
+				</div>
+            </section>
+            {% endblock %}
+
+			{% block recentComments %}
+            <section id="widget-category" class="widget-wrapper widget_recentComments">
+                <div class="widget-title">
+                    最近评论
+                </div>
+				<div>
+                {% set recent = articles if not all_articles else all_articles %}
+				<ul id="recent-posts">
+			
+				</ul>
+				</div>
+            </section>
+            {% endblock %}
+			
+            {% block tagcloud %}
+            <section id="widget-links" class="widget-wrapper">
+                <div class="widget-title">
+                   友情链接
+                </div>
+                <span><a href="http://www.demiaowu.cn/">暗淡了乌云</a>&nbsp;|&nbsp;<a href="http://www.demiaowu.cn/">暗淡了乌云</a></span>
+            </section>
+            {% endblock %}
+
+
+            {% block links %}
+            <section id="widget-links" class="widget-wrapper widget_archive">
+                <div class="widget-title">
+                    有用链接
+                </div>
+                <ul>
+				    <span>
+                    {% for name, link in LINKS %}
+                        <a href="{{ link }}">{{ name }}</a>
+                    {% endfor %}
+					</span>
+                </ul>
+            </section>
+            {% endblock %}
+            
+			{% block page_copyright %}
+			<section id="widget-copyright" class="widget-wrapper widget_archive">
+			<div class="widget-title">
+                    版权协议
+            </div>
+			 
+				<div class="grid col-300 copyright" >
+					<img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="知识共享许可协议"></img>
+					<!--<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">知识共享许可协议</a>-->
+				</div>
+			 </section>
+			{% endblock%}
+        </section><!-- widgets -->
+        {% endblock widgets %}
+    </section><!-- /#wrapper -->
+    {% block footer %}
+    <footer id="footer" class="clearfix"><section class="footer-wrapper">
+        <div class="grid col-940" >
+            <div class="grid col-540"></div>
+            <div class="grid col-380 fit" >
+                <ul class="social-icons">
+                    <!-- TO BE CONTINUED -->
+                </ul>
+            </div>
+        </div>
+		
+		<div class="grid col-300 copyright" >
+					<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license">
+						<img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"" alt="知识共享许可协议"></img>
+					</a>
+				</div>
+        <div class="grid col-300 ">
+		
+        </div>
+        <div class="grid col-300 fit powered">
+          Copyright © 2017 - muzeet - Powered by Pelican
+        </div>
+    </section></footer>
+    {% endblock footer %}
+</div>
+
+<!--
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('pre').addClass('prettyprint linenums') 
+		//添加Google code Hight需要的class
+		prettyPrint();
+	});
+		
+</script>
+-->
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% if DEFAULT_PAGINATION %}
+<p class="paginator">
+	<span id="previous_page">
+    {% if articles_page.has_previous() %}
+        {% if articles_page.previous_page_number() == 1 %}
+            <a href="{{ SITEURL }}/{{ page_name }}.html">&larr;&nbsp;前一页</a>
+        {% else %}
+            <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html">&larr;&nbsp;前一页</a>
+        {% endif %}
+    {% endif %}
+	</span>
+	<span id="cur_page">
+    第 {{ articles_page.number }} / {{ articles_paginator.num_pages }}页
+	</span>
+	
+	<span id="next_page">
+    {% if articles_page.has_next() %}
+        <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">后一页&nbsp;&rarr;</a>
+    {% endif %}
+	</span>
+</p>
+{% endif %}
