@@ -3424,3 +3424,13 @@ img
   color:#0066CC;
   text-decoration:underline;
 }
+.search_div
+{
+	border:0px green solid;
+}
+.search
+{
+	width:50px;
+	height:1.6em;
+}
+
