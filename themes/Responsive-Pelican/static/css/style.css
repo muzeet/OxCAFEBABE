@@ -3433,4 +3433,23 @@ img
 	width:50px;
 	height:1.6em;
 }
+.more a
+{
+	margin-top:1.0em;
+	color:#0F0E0A;
+	font-size:10;
+	font-weight:normal;
+	text-align:center;
+	padding:.6em;
+	border:0px red solid;
+	background-color: #EBEBEB; 
+	-webkit-border-radius: 4px;/**苹果；谷歌，等一些浏览器认，因为他们都用的是webkit内核**/
+	-moz-border-radius: 4px;/*专门支持Mozilla Firefox 火狐浏览器的CSS属性*/
+    border-radius: 4px;/*Mozilla/Firefox 和 Safari 3支持该属性*/
+}
+.more a:hover
+{
+	background-color:#1863A1;
+	color:#FFF;
+}
 

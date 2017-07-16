@@ -23,7 +23,9 @@
 	</header>
 	<div class="summary">{{ article.content|truncate(1000) }}</div>
 	<footer>
-		
+		<div class="readmore">
+			<span class="more"><a href="{{ SITEURL }}/{{ article.url }}">继续阅读</a></span>
+		</div>
 	</footer>
 </article></li>
 {% endfor %}
