@@ -9,7 +9,7 @@ JINJA_FILTERS = {
 
 AUTHOR = u'muzeet'
 SITENAME = u"OxCAFEBABE"
-SITEURL = 'http://www.muzeet.com'
+SITEURL = 'http://www.muzeet.cn/cn'
 
 PATH = 'content'
 
@@ -59,14 +59,14 @@ DISPLAY_CATEGORIES_ON_MENU = False
 #让pages不显示在menu中
 DISPLAY_PAGES_ON_MENU = False
 #菜单项
-MENUITEMS = ((u"博客主页","/"),
-			 (u"文章列表","/archives.html"),
-             (u"分类目录","/categories.html"),
-			 (u"Cloud&Data","/category/Cloud&Data/"),
-			 (u"程序人生","/category/Code/"),
-			 (u"读书","/category/读书/"),
-			 (u"博客设计","/category/博客设计/"),
-			 (u"关于本站","#"),
+MENUITEMS = ((u"博客主页",SITEURL+"/"),
+			 (u"文章列表",SITEURL+"/archives.html"),
+             (u"分类目录",SITEURL+"/categories.html"),
+			 (u"Cloud&Data",SITEURL+"/category/Cloud&Data/"),
+			 (u"程序人生",SITEURL+"/category/Code/"),
+			 (u"读书",SITEURL+"/category/读书/"),
+			 (u"博客设计",SITEURL+"/category/博客设计/"),
+			 (u"关于本站",SITEURL+"/pages/about-me.html"),
             )
 #文章显示
 ARTICLE_URL='posts/{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
