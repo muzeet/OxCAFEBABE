@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+{{ super() }}
+<ul>
+{% for article in articles_page.object_list %}
+<li class="posts"><article class="post hentry">
+	<header>
+		<div class="post-info">
+		<span class="post-lable">发布于：</span>
+			<abbr class="date" title="{{ article.date.isoformat() }}"> 
+				<a href="{{ SITEURL }}/archives/{{article.date|strftime("%Y/index.html")}}">{{ article.locale_date }} </a>
+			</abbr>
+		<span class="post-lable">分类：</span>
+			<abbr class="category">
+				<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+			</abbr>
+			<!-- COMMENTS -->
+		</div>
+		<h2 class="title" >
+			<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+		</h2>
+		
+	</header>
+	<div class="summary">{{ article.content|truncate(1000) }}</div>
+	<footer>
+		<div class="readmore">
+			<span class="more"><a href="{{ SITEURL }}/{{ article.url }}">继续阅读</a></span>
+		</div>
+	</footer>
+</article></li>
+{% endfor %}
+<hr/>
+</ul>
+{% include 'pagination.html' %}
+{% endblock content%}
+
