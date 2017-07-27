@@ -5,7 +5,6 @@ Category: Cloud&Data
 Tags: cloud computing
 Slug:Articles-about-Cloud-Computing-and-Big-Data
 Authors: muzeet
-Status:draft
 Summary: 本站关于云计算和大数据的文章。
 
 本站关于云计算和大数据的文章。
