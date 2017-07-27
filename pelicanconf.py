@@ -59,15 +59,25 @@ DISPLAY_CATEGORIES_ON_MENU = False
 #让pages不显示在menu中
 DISPLAY_PAGES_ON_MENU = False
 #菜单项
-MENUITEMS = ((u"博客主页",SITEURL+"/"),
-			 (u"文章列表",SITEURL+"/archives.html"),
-             (u"分类目录",SITEURL+"/categories.html"),
-			 (u"Cloud&Data",SITEURL+"/pages/Cloud&Data/Articles-about-Cloud-Computing-and-Big-Data.html"),
-			 (u"程序人生",SITEURL+"/pages/Code/Articles-about-Code.html"),
-			 (u"读书",SITEURL+"/category/读书/"),
-			 (u"博客设计",SITEURL+"/category/博客设计/"),
-			 (u"关于本站",SITEURL+"/pages/about-me.html"),
+MENUITEMS = ((u"博客主页",""),
+			 (u"文章列表","archives.html"),
+             (u"分类目录","categories.html"),
+			 (u"Cloud&Data","pages/Articles-about-Cloud-Computing-and-Big-Data.html"),
+			 (u"程序人生","pages/Articles-about-Code.html"),
+			 (u"读书","category/读书/"),
+			 (u"博客设计","category/博客设计/"),
+			 (u"关于本站","pages/about-me.html"),
             )
+
+#MENUITEMS = ((u"博客主页",SITEURL+"/"),
+#			 (u"文章列表",SITEURL+"/archives.html"),
+#            (u"分类目录",SITEURL+"/categories.html"),
+#			 (u"Cloud&Data",SITEURL+"/pages/Articles-about-Cloud-Computing-and-Big-Data.html"),
+#			 (u"程序人生",SITEURL+"/pages/Articles-about-Code.html"),
+#			 (u"读书",SITEURL+"/category/读书/"),
+#			 (u"博客设计",SITEURL+"/category/博客设计/"),
+#			 (u"关于本站",SITEURL+"/pages/about-me.html"),
+#            )
 #文章显示
 ARTICLE_URL='posts/{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 ARTICLE_SAVE_AS='posts/{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
@@ -78,6 +88,8 @@ DIRECT_TEMPLATES = ['index', 'categories', 'archives']
 YEAR_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/index.html'
 #MONTH_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/{date:%m}/index.html'
 #DAY_ARCHIVE_SAVE_AS =  'posts/archive/{date:%Y}/{date:%b}/{data:%d}/index.html'
+#page文章显示
+PAGE_SAVE_AS='pages/{slug}.html'
 PAGE_PATHS = ['pages']
 STATIC_PATHS = ['images']
 DRAFT_URL = 'drafts/{slug}.html'
