@@ -6,15 +6,20 @@
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
-	<link rel="stylesheet" id="responsive-style-css"  href="{{ SITEURL }}/theme/css/tomorrow-night-bright.css" type="text/css" media="all" />
+	<!--<link rel="stylesheet" id="responsive-style-css"  href="{{ SITEURL }}/theme/css/tomorrow-night-bright.css" type="text/css" media="all" />-->
     <link rel="stylesheet" id="responsive-style-css"  href='{{ SITEURL }}/theme/css/style.css' type="text/css" media="all" />
-	<!--<link rel="stylesheet" id="responsive-style-css"  href='{{ SITEURL }}/theme/css/pygmentMy.css' type="text/css" media="all" />-->
+	<link rel="stylesheet" id="responsive-style-css"  href='{{ SITEURL }}/theme/css/pygmentMy.css' type="text/css" media="all" />
 	<link rel="stylesheet" id="responsive-style-css"  href='{{ SITEURL }}/theme/css/archive.css' type="text/css" media="all" />
+	<!--
+	<link rel="stylesheet" id="responsive-style-css"  href='{{ SITEURL }}/theme/css/androidstudio.css' type="text/css" media="all" />
+	-->
 	
 	<script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="{{ SITEURL }}/theme/js/numberLines.js"></script>
 	<script type="text/javascript" src="{{ SITEURL }}/theme/js/prettify.js"></script>
-	
+	<!--
+	<script type="text/javascript" src="{{ SITEURL }}/theme/js/highlight.pack.js"></script>
+	-->
 	{% if FEED_ALL_ATOM %}
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
     {% endif %}
@@ -42,6 +47,12 @@
     
     {% endblock head %}
 </head>
+
+<!--
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+-->
 
 <body id="index" class="blog"  onload="$('pre').addClass('prettyprint');window.prettyPrint && prettyPrint();">
 <div id="container" class="hfeed">

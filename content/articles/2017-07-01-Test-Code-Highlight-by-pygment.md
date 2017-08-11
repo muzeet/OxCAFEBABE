@@ -12,8 +12,9 @@ Summary: 使用pygment进行代码高亮处理。
 
 求二叉树的第k个节点：
 
+	:::java
 	public class KthNode
-    {
+	{
 		 public TreeNode kthNode(TreeNode pRoot, int k)
 		 {
 	        //求二叉排序树的第k个节点，只需要中序遍历，即可
@@ -38,4 +39,5 @@ Summary: 使用pygment进行代码高亮处理。
 	        }
 	        return kthNode;
 		 }
-    }
+	}
+	

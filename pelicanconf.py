@@ -96,18 +96,17 @@ TAG_SAVE_AS='tag/{name}/index.html'
 TAG_CLOUD_STEPS=4
 TAG_CLOUD_MAX_ITEMS=100
 
-#代码注释
-PYGMENTS_RST_OPTIONS = {'classprefix': 'pgcss', 'linenos': 'table'}
+#插件
+PLUGIN_PATHS = ['pelican-plugins',]
+PLUGINS = ["better_codeblock_line_numbering",]
 
-'''
+#代码注释
+#PYGMENTS_RST_OPTIONS = {'classprefix': 'highlight', 'linenos': 'table'}
 from markdown.extensions import codehilite
-MD_EXTENSIONS = ([
-    'extra',
-    'footnotes',
-    'tables',
-    codehilite.CodeHiliteExtension(configs=[('linenums', true), ('guess_lang', False)]),
-])
-'''
+MARKDOWN_EXTENSIONS = ['codehilite(linenums = True)']
+
+#from markdown.extensions import codehilite
+#MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite(css_class=highlight, linenums=True)', 'extra']
 
 #将静态文件拷贝到output目录下
 #FILES_TO_COPY = (
