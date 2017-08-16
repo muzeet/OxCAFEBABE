@@ -198,6 +198,7 @@ Exception：表示可以被抛出的基本类型，在java类库、用户方法�
 - 正则表达式
 	* String类的`matches()`、`split()`、`replace()`方法可以接受正则表达式字符串参数
 	* `Pattern`和`Matcher`，导入`java.util.regex`包，用`static Pattern.compile()`方法编译正则表达式生成Pattern对象，Pattern对象的matcher()方法接受要检索的字符串作为参数，生成Matcher对象
+
 	
 			import java.util.regex.*;
 			Pattern pattern = Pattern.compile(arg1)//arg1为正字表达式字符串
@@ -207,8 +208,11 @@ Exception：表示可以被抛出的基本类型，在java类库、用户方法�
 			boolean lookingAt()//判断该字符串的始部分是否匹配模式
 			boolean find()//在字符串中查找多个匹配，能像迭代器一样前向遍历输入字符串
 			boolean find(int start)//参数表示搜索的起点
+
+
+
 	* 组（Groups）：组是用括号划分的正则表达式，可以根据编号引用某个组，组号0表示整个表达式，组号1表示被第一对括号括起来的组。A(B(C))D,组0是ABCD,组1是BC,组2是C。
-	* Scanner构造器可以接受任何类型的输入对象，包括File、InputStream、String、Readable对象。
+    * Scanner构造器可以接受任何类型的输入对象，包括File、InputStream、String、Readable对象。
 	* Scanner默认使用空白字符对输入进行分词，可以用正则表达式指定自定义的定界符。`Scanner对象.useDelimiter("正则表达式")`。
 	* Scanner使用正则表达式进行扫描：如果正则表达式中含有定界符则永远不会匹配成功。
 	
@@ -327,6 +331,8 @@ Exception：表示可以被抛出的基本类型，在java类库、用户方法�
 			Method g = a.getClass().getDeclaredMethod(methodName);
    			g.setAccessible(true);
     		g.invoke(a);
+
+
 	- 反射可以调用非公共访问权限的方法，对域来说也适用。final域在修改时是安全的，运行时系统会在不抛出异常的情况下接受任何修改，但是实际上不会发生任何修改。
 
 ##15. 泛型 ##
