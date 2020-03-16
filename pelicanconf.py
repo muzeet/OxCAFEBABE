@@ -66,7 +66,7 @@ MENUITEMS = ((u"博客主页",""),
 			 (u"程序人生","pages/Articles-about-Code.html"),
 			 (u"读书","category/读书/"),
 			 (u"博客设计","category/博客设计/"),
-             (u"个人笔记","http://www.muzeet.cn/MyRecord"),
+             (u"个人笔记","../MyRecord"),
 			 (u"关于本站","pages/about-me.html"),
             )
 
