@@ -153,7 +153,7 @@ pre,
 kbd,
 samp,
 code {
-	font-family: monospace, serif;
+	/*font-family: monospace, serif;*/
 	font-style: normal;
 }
 
@@ -1374,7 +1374,7 @@ form div {
 -------------------------------------------------------------- */
 #content {
 	margin: 20px 1.6em 0 2.1em;
-	border:0px blue solid;
+	border:1px blue solid;
 	padding:0 0 0 0em;
 	/*width:840px;*/
 	width:70%;
@@ -1572,7 +1572,7 @@ li.posts {
 #post{
 	/*margin-right: 1.5em;
 	margin-left: 1.5em;*/
-	border:0px green solid;
+	border:1px green solid;
 }
 #content ul {
 	margin:0px;
@@ -3465,7 +3465,7 @@ img
 }
 .category_one
 {
-	border:0px red solid;
+	border:1px red solid;
 	margin:1em 0 0 .5em;
 }
 .category_one li
@@ -3491,6 +3491,8 @@ img
 	width:50px;
 	height:1.6em;
 }
+
+/*--继续阅读--*/
 .more a
 {
 	margin-top:1.0em;
@@ -3620,6 +3622,8 @@ img
 	border:#fff 0.5em solid;
 }
 
+/* =widgets 右侧导航模块超链接样式
+-------------------------------------------------------------- */
 .sidebar a
 {
 	color:inherit;

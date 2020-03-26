@@ -3,7 +3,8 @@
 {{ super() }}
 <ul>
 {% for article in articles_page.object_list %}
-<li class="posts"><article class="post hentry">
+<li class="posts">
+<article class="post hentry">
 	<header>
 		<div class="post-info">
 		<span class="post-lable">发布于：</span>
@@ -21,13 +22,19 @@
 		</h2>
 		
 	</header>
-	<div class="summary">{{ article.content|truncate(1000) }}</div>
-	<footer>
+	<div class="summary">
+		<div>{{ article.content|truncate(1000) }}</div>
+	</div>
+	<span></span>
+	<div>
+	<!--<footer>-->
 		<div class="readmore">
 			<span class="more"><a href="{{ SITEURL }}/{{ article.url }}">继续阅读</a></span>
 		</div>
-	</footer>
-</article></li>
+	<!--</footer>-->
+	</div>
+</article>
+</li>
 {% endfor %}
 <hr/>
 </ul>

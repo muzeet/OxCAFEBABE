@@ -3,7 +3,8 @@
 {{ super() }}
 <ul>
 {% for article in articles_page.object_list %}
-<li class="posts"><article class="post hentry">
+<li class="posts">
+<article class="post hentry">
 	<header>
 		<h2 class="title" >
 			<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
@@ -17,14 +18,15 @@
 		</div>
 	</header>
 	<div class="summary">{{ article.summary }}</div>
+	<span></span> <!--blank-->
 	<footer>
 		<span class="post-lable">Category:</span>
 		<abbr class="category">
 			<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
 		</abbr>
 	</footer>
-
-</article></li>
+</article>
+</li>
 {% endfor %}
 <hr/>
 </ul>
