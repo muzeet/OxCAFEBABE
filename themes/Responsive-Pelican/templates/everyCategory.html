@@ -9,7 +9,28 @@
 <article>
     <div id="ev_article">
 	<dd>
-		<span class="archives_year archives_content">
+	    <!--手机页面时隐藏-->
+		<div class="archives_year" id="moth_day">
+			<time datetime="{{ article.date.isoformat()}}" pubdate>
+				<span class='month'>{{ article.date.strftime('%m') }}</span>
+				<span class='day'>{{ article.date.strftime('%d') }}</span>
+				<span class='year'>{{ year }}</span>
+			</time>
+		</div>
+	</dd>
+	<dd>
+		<div class="archives_year">
+		    <!--
+			<time datetime="{{ article.date.isoformat()}}" pubdate>
+				<span class='month'>{{ article.date.strftime('%m') }}</span>
+				<span class='day'>{{ article.date.strftime('%d') }}</span>
+				<span class='year'>{{ year }}</span>
+			</time>
+			-->
+			<h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+		</div>
+		<!--
+		<span class="archives_year">
 			<time datetime="{{ article.date.isoformat()}}" pubdate>
 				<span class='year'>{{ year }}</span>
 				<span class='month'>{{ article.date.strftime('%m') }}</span>
@@ -17,12 +38,28 @@
 			</time>
 			<h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
 		</span>
+		-->
 	</dd>
 	<dd>
-		<footer class="post-meta archives_content" id="archive_footer">
-			<span class="meta-prep">分类:</span>
+		<footer class="post-meta" id="archive_footer">
+			<!--仅在手机页面时和分类一起显示时间-->
+			<span class="meta prep moth_year_day">
+				<time datetime="{{ article.date.isoformat()}}" pubdate>
+					<span class='month'>{{ article.date.strftime('%m') }}</span>
+					<span class='day'>{{ article.date.strftime('%d') }}</span>
+					<span class='year' id="mobile_year">{{ year }}</span>
+				</time>
+			</span>
+			<span class="meta-prep">标签:</span>
+			<!--
 			<abbr class="category">
 				<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+			</abbr>
+			-->
+			<abbr class="label">
+            {% for tag in article.tags %}
+                <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+            {% endfor %}
 			</abbr>
 		</footer>
 	</dd>

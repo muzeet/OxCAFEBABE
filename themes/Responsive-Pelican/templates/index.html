@@ -1,17 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 {{ super() }}
+
+<div>
 <ul>
 {% for article in articles_page.object_list %}
 <li class="posts">
 <article class="post hentry">
 	<header>
 		<div class="post-info">
-		<span class="post-lable">发布于：</span>
+		    <span class="post-lable">发布于：</span>
 			<abbr class="date" title="{{ article.date.isoformat() }}"> 
 				<a href="{{ SITEURL }}/archives/{{article.date|strftime("%Y/index.html")}}">{{ article.locale_date }} </a>
 			</abbr>
-		<span class="post-lable">分类：</span>
+			<!--分割线-->
+			<span class="middle-stub"></span>
+		    <span class="post-lable">分类：</span>
 			<abbr class="category">
 				<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
 			</abbr>
@@ -20,24 +24,21 @@
 		<h2 class="title" >
 			<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
 		</h2>
-		
 	</header>
 	<div class="summary">
 		<div>{{ article.content|truncate(1000) }}</div>
 	</div>
-	<span></span>
-	<div>
-	<!--<footer>-->
+	<footer>
 		<div class="readmore">
 			<span class="more"><a href="{{ SITEURL }}/{{ article.url }}">继续阅读</a></span>
 		</div>
-	<!--</footer>-->
-	</div>
+	</footer>
 </article>
 </li>
 {% endfor %}
 <hr/>
 </ul>
+</div>
 {% include 'pagination.html' %}
 {% endblock content%}
 

@@ -1,24 +1,42 @@
+.date
+{
+	border: 0px green solid;
+}
 /**
  * 设置分类相关的样式
  **/
 .category
 {
-	margin:2em 0 0 1em;
-	border: 1px red solid;
+	/*margin:2em 0 0 1em;*/
+	border: 0px green solid;
+}
+/**=标题头
+------------------*/
+.middle-stub
+{
+	border: 0px green solid;
+	margin: 0 0.4em 0 0.4em;
+}
+
+.middle-stub2
+{
+	border: 0px green solid;
+	margin:0 0.2em 0 0.2em;
 }
 
 .archive_list
 {
 	border-bottom: 1px #B4B4B4 dashed;
 }
+
 #ev_article
 {
 	margin-left:2.8em;
-	border:1px red solid;
+	border:0px blue solid;
 }
 .archives_year
 {
-	border: 1px red solid;
+	border: 0px red solid;
 }
 
 .yearClass
@@ -50,13 +68,9 @@
 {
   color:#0066CC;
 }
-.archives_content
-{
-	
-}
 
 
-.archives_year  time {
+.archives_year time {
   float:left;
   font-size: 1em;
   color: #AAAAAA;
@@ -64,9 +78,16 @@
   border:1px blue solid;
   position: relative;
   text-align: center;
-  top: 0.8em;
+  top: 1.2em;
 }
-.year { display: none; }
+
+.year { 
+	display: none; 
+}
+
+.moth_year_day {
+	display: none; 
+}
 
 #archive_footer
 {
