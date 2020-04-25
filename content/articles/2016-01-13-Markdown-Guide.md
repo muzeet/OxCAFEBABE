@@ -7,6 +7,7 @@ Summary: Markdown语法
 Authors: muzeet
 
 ##概述##
+
 ###宗旨###
 Markdown 的目标是实现「易读易写」。
   

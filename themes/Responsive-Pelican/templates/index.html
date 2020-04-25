@@ -6,7 +6,7 @@
 <ul>
 {% for article in articles_page.object_list %}
 <li class="posts">
-<article class="post hentry">
+<article class="post hentry" id="entry_article">
 	<header>
 		<div class="post-info">
 			<!-- 使用font-awesome代替文字
@@ -27,9 +27,9 @@
 			</abbr>
 			<!-- COMMENTS -->
 		</div>
-		<h2 class="title" >
+		<h1 class="title" >
 			<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
-		</h2>
+		</h1>
 	</header>
 	<div class="summary">
 		<div>{{ article.content|truncate(1000) }}</div>
