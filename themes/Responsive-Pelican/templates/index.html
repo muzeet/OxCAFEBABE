@@ -9,13 +9,23 @@
 <article class="post hentry">
 	<header>
 		<div class="post-info">
+			<!-- 使用font-awesome代替文字
 		    <span class="post-lable">发布于：</span>
+			-->
+			<span class="post-lable">
+				<i class="fa fa-calendar"></i>
+			</span>
 			<abbr class="date" title="{{ article.date.isoformat() }}"> 
 				<a href="{{ SITEURL }}/archives/{{article.date|strftime("%Y/index.html")}}">{{ article.locale_date }} </a>
 			</abbr>
 			<!--分割线-->
 			<span class="middle-stub"></span>
+			<!-- 使用font-awesome代替文字
 		    <span class="post-lable">分类：</span>
+			-->
+			<span class="post-lable">
+				<i class="fa fa-folder"></i>
+			</span>
 			<abbr class="category">
 				<a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
 			</abbr>
